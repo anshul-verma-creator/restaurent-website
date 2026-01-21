@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm Restaurant Theme */
+    --background: 35 45% 95%;
+    --foreground: 25 30% 15%;
+
+    --card: 35 40% 97%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 35 40% 97%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Terracotta Orange */
+    --primary: 20 73% 55%;
+    --primary-foreground: 35 45% 98%;
+
+    /* Sage Green */
+    --secondary: 95 25% 75%;
+    --secondary-foreground: 95 30% 20%;
+
+    /* Warm Beige */
+    --muted: 35 35% 90%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Sage Green Accent */
+    --accent: 95 23% 61%;
+    --accent-foreground: 95 30% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 35 30% 85%;
+    --input: 35 30% 85%;
+    --ring: 20 73% 55%;
+
+    --radius: 1rem;
+
+    /* Custom Restaurant Colors */
+    --cream: 35 45% 95%;
+    --warm-beige: 30 47% 90%;
+    --sage: 95 23% 61%;
+    --sage-light: 95 25% 85%;
+    --terracotta: 20 73% 67%;
+    --terracotta-dark: 20 73% 45%;
+    --brown: 25 40% 25%;
+    --brown-light: 25 30% 35%;
+    --coral: 15 65% 65%;
+    --yellow-soft: 45 70% 75%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(35 45% 95%) 0%, hsl(35 35% 88%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(95 25% 85%) 0%, hsl(95 23% 78%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(30 47% 92%) 0%, hsl(35 45% 95%) 100%);
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(25 30% 15% / 0.08);
+    --shadow-card-hover: 0 12px 32px -8px hsl(25 30% 15% / 0.15);
+    --shadow-button: 0 4px 12px -2px hsl(20 73% 55% / 0.3);
+
+    --sidebar-background: 35 45% 95%;
+    --sidebar-foreground: 25 30% 15%;
+    --sidebar-primary: 20 73% 55%;
+    --sidebar-primary-foreground: 35 45% 98%;
+    --sidebar-accent: 95 23% 61%;
+    --sidebar-accent-foreground: 95 30% 15%;
+    --sidebar-border: 35 30% 85%;
+    --sidebar-ring: 20 73% 55%;
+  }
+
+  .dark {
+    --background: 25 30% 10%;
+    --foreground: 35 40% 95%;
+
+    --card: 25 28% 14%;
+    --card-foreground: 35 40% 95%;
+
+    --popover: 25 28% 14%;
+    --popover-foreground: 35 40% 95%;
+
+    --primary: 20 73% 60%;
+    --primary-foreground: 25 30% 10%;
+
+    --secondary: 95 20% 25%;
+    --secondary-foreground: 95 25% 90%;
+
+    --muted: 25 25% 20%;
+    --muted-foreground: 35 20% 65%;
+
+    --accent: 95 20% 30%;
+    --accent-foreground: 95 25% 90%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 25% 20%;
+    --input: 25 25% 20%;
+    --ring: 20 73% 60%;
+
+    --cream: 25 30% 12%;
+    --warm-beige: 30 25% 15%;
+    --sage: 95 18% 35%;
+    --sage-light: 95 15% 25%;
+    --terracotta: 20 65% 55%;
+    --terracotta-dark: 20 65% 40%;
+    --brown: 25 30% 70%;
+    --brown-light: 25 25% 55%;
+    --coral: 15 55% 55%;
+    --yellow-soft: 45 50% 45%;
+
+    --sidebar-background: 25 30% 10%;
+    --sidebar-foreground: 35 40% 95%;
+    --sidebar-primary: 20 73% 60%;
+    --sidebar-primary-foreground: 25 30% 10%;
+    --sidebar-accent: 95 20% 30%;
+    --sidebar-accent-foreground: 95 25% 90%;
+    --sidebar-border: 25 25% 20%;
+    --sidebar-ring: 20 73% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium 
+           transition-all duration-300 hover:shadow-lg hover:scale-105;
+    box-shadow: var(--shadow-button);
+  }
+
+  .btn-secondary {
+    @apply bg-brown text-primary-foreground px-6 py-3 rounded-full font-medium 
+           transition-all duration-300 hover:opacity-90 hover:scale-105;
+  }
+
+  .card-food {
+    @apply bg-card rounded-3xl overflow-hidden transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-food:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+
+  .card-sage {
+    @apply rounded-3xl overflow-hidden transition-all duration-300;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-sage:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-4px);
+  }
+
+  .badge-spicy {
+    @apply bg-terracotta text-white px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-veg {
+    @apply bg-sage text-sage-foreground px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-bestseller {
+    @apply bg-coral text-white px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .badge-new {
+    @apply bg-yellow-soft text-brown px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .organic-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  .organic-shape-2 {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  .text-decorative {
+    font-family: 'Playfair Display', serif;
+    @apply font-semibold;
+  }
+
+  .bg-cream {
+    background-color: hsl(var(--cream));
+  }
+
+  .bg-warm-beige {
+    background-color: hsl(var(--warm-beige));
+  }
+
+  .bg-sage {
+    background-color: hsl(var(--sage));
+  }
+
+  .bg-sage-light {
+    background-color: hsl(var(--sage-light));
+  }
+
+  .bg-terracotta {
+    background-color: hsl(var(--terracotta));
+  }
+
+  .bg-brown {
+    background-color: hsl(var(--brown));
+  }
+
+  .text-brown {
+    color: hsl(var(--brown));
+  }
+
+  .text-brown-light {
+    color: hsl(var(--brown-light));
+  }
+
+  .text-terracotta {
+    color: hsl(var(--terracotta));
+  }
+
+  .text-sage {
+    color: hsl(var(--sage));
+  }
+
+  .border-sage {
+    border-color: hsl(var(--sage));
+  }
+
+  .wave-decoration {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23594438' d='M0,50 C360,100 720,0 1080,50 C1260,75 1380,50 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-steam {
+    animation: steam 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes steam {
+    0%, 100% { opacity: 0.3; transform: translateY(0) scale(1); }
+    50% { opacity: 0.8; transform: translateY(-20px) scale(1.1); }
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .image-zoom {
+    @apply transition-transform duration-500;
+  }
+
+  .image-zoom:hover {
+    transform: scale(1.05);
+  }
+}
